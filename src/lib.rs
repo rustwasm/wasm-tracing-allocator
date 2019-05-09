@@ -1,7 +1,5 @@
 /*!
 
-# `wasm-tracing-allocator`
-
 A global allocator implementation that traces Wasm allocations and
 deallocations. This enables better debugging and analysis of memory leaks and
 invalid frees in an environment where we don't have access to the conventional
