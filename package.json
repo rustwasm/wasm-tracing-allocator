@@ -1,0 +1,30 @@
+{
+  "name": "wasm-tracing-allocator",
+  "version": "0.1.0",
+  "description": "",
+  "main": "js/hooks.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rustwasm/wasm-tracing-allocator.git"
+  },
+  "keywords": [
+    "wasm",
+    "rust",
+    "webassembly",
+    "allocator",
+    "memory-leak",
+    "use-after-free"
+  ],
+  "author": "Nick Fitzgerald",
+  "license": "MIT OR Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/rustwasm/wasm-tracing-allocator/issues"
+  },
+  "homepage": "https://github.com/rustwasm/wasm-tracing-allocator#readme"
+}

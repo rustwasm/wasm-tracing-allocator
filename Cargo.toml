@@ -1,0 +1,8 @@
+[package]
+name = "wasm-tracing-allocator"
+version = "0.1.0"
+authors = ["Nick Fitzgerald <fitzgen@gmail.com>", "The Rust and WebAssembly Working Group"]
+edition = "2018"
+
+[dependencies]
+wasm-bindgen = "0.2.43"
