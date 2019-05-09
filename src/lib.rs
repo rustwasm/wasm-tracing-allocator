@@ -9,8 +9,6 @@ perturb results.
 
 * [Enabling the Tracing Allocator](#enabling-the-tracing-allocator)
 * [Analyzing and Debugging](#analyzing-and-debugging)
-  * [Memory Leaks](#memory-leaks)
-  * [Invalid Frees](#invalid-frees)
 
 ## Enabling the Tracing Allocator
 
@@ -52,15 +50,69 @@ Wasm module to import:
 
 ## Analyzing and Debugging
 
-TODO
+Use your developer tools console to invoke methods of the global
+`WasmTracingAllocator` object to get analyses about allocations and
+deallocations.
+
+The output is typically rendered with `console.table`:
+
+[![Example output](https://raw.githubusercontent.com/rustwasm/wasm-tracing-allocator/master/live-allocations-dump.png)](https://raw.githubusercontent.com/rustwasm/wasm-tracing-allocator/master/live-allocations-dump.png)
 
 ### `WasmTracingAllocator.dumpLiveAllocations`
 
-TODO
+Dump a table of live allocations to the console.
+
+```js
+WasmTracingAllocator.dumpLiveAllocations({
+  keyLabel: String,
+  valueLabel: String,
+  getKey: Object => any,
+  getValue: Object => Number,
+});
+```
+
+* `keyLabel`: Optional. The string label used to describe the keys column in the
+  table.
+
+* `valueLabel`: Optional. The string label used to describe the values column in
+  the table.
+
+* `getKey`: Optional. Function from an allocation entry object to anything. The
+  table will group and aggregate entries by their keys. Defaults to the stack at
+  the time of the allocation.
+
+* `getValue`: Optional. Function from an allocation entry object to a
+  number. The values for all entries with the same key are summed. Defaults to
+  the byte size of each allocation; a potential alternative would be to ignore
+  the argument and return `1` to count the number of allocations instead.
 
 ### `WasmTracingAllocator.dumpInvalidFrees`
 
-TODO
+Dump a table of invalid frees (double frees, frees of things that were never
+allocated, etc...) to the console.
+
+```js
+WasmTracingAllocator.dumpInvalidFrees({
+  keyLabel: String,
+  valueLabel: String,
+  getKey: Object => any,
+  getValue: Object => Number,
+});
+```
+
+* `keyLabel`: Optional. The string label used to describe the keys column in the
+  table.
+
+* `valueLabel`: Optional. The string label used to describe the values column in
+  the table.
+
+* `getKey`: Optional. Function from an invalid free entry object to anything. The
+  table will group and aggregate entries by their keys. Defaults to the stack at
+  the time of the deallocation.
+
+* `getValue`: Optional. Function from an invalid free entry object to a
+  number. The values for all entries with the same key are summed. Defaults to
+  counting the number of invalid frees.
 
  */
 
