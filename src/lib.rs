@@ -1,11 +1,20 @@
 /*!
 
-A global allocator implementation that traces Wasm allocations and
-deallocations. This enables better debugging and analysis of memory leaks and
-invalid frees in an environment where we don't have access to the conventional
-tools like Valgrind. The tracing hooks are safely implemented in JS, outside the
-Wasm module and its linear memory, to ensure that the tracing code doesn't
-perturb results.
+**A global allocator for Wasm that traces allocations and deallocations for
+debugging purposes.**
+
+[![](https://docs.rs/wasm-tracing-allocator/badge.svg)](https://docs.rs/wasm-tracing-allocator/)
+[![](https://img.shields.io/crates/v/wasm-tracing-allocator.svg)](https://crates.io/crates/wasm-tracing-allocator)
+[![](https://img.shields.io/crates/d/wasm-tracing-allocator.svg)](https://crates.io/crates/wasm-tracing-allocator)
+[![Build Status](https://dev.azure.com/rustwasm/wasm-tracing-allocator/_apis/build/status/rustwasm.wasm-tracing-allocator?branchName=master)](https://dev.azure.com/rustwasm/wasm-tracing-allocator/_build/latest?definitionId=2&branchName=master)
+
+`wasm-tracing-allocator` enables you to better debug and analyze memory leaks
+and invalid frees in an environment where we don't have access to the
+conventional tools like Valgrind. The tracing hooks are safely implemented in
+JS, outside the Wasm module and its linear memory, to ensure that the tracing
+code doesn't perturb results.
+
+## Table of Contents
 
 * [Enabling the Tracing Allocator](#enabling-the-tracing-allocator)
 * [Analyzing and Debugging](#analyzing-and-debugging)
