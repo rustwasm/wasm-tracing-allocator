@@ -135,7 +135,27 @@ pub mod hooks;
 /// A global allocator that traces the Wasm module's allocations and
 /// deallocations.
 ///
-/// See the module level documentation for details and usage.
+/// It wraps some global allocator `A` that actually implements the allocation
+/// and deallocation, and inserts its tracing after each invocation.
+///
+/// ## Example
+///
+/// Just give it the global allocator `A` to wrap, and add the
+/// `#[global_allocator]` attribute. The module level documentation has an
+/// example of wrapping the default system allocator. Here is an example of
+/// wrapping [`wee_alloc`](https://github.com/rustwasm/wee_alloc):
+///
+/// ```ignore
+/// // src/lib.rs
+/// # fn main() {}
+///
+/// use wasm_tracing_allocator::WasmTracingAllocator;
+/// use wee_alloc::WeeAlloc;
+///
+/// #[global_allocator]
+/// static GLOBAL_ALLOCATOR: WasmTracingAllocator<WeeAlloc> =
+///     WasmTracingAllocator(WeeAlloc::INIT);
+/// ```
 #[derive(Debug)]
 pub struct WasmTracingAllocator<A>(pub A)
 where
