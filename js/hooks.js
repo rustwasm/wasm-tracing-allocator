@@ -51,7 +51,7 @@
     align,
   ) {
     onDealloc(oldSize, align, oldPointer);
-    onAlloc(newPointer, newSize, align);
+    onAlloc(newSize, align, newPointer);
   }
 
   function dumpTable(entries, { keyLabel, valueLabel, getKey, getValue }) {
