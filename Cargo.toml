@@ -1,8 +1,13 @@
 [package]
-name = "wasm-tracing-allocator"
-version = "0.1.0"
 authors = ["Nick Fitzgerald <fitzgen@gmail.com>", "The Rust and WebAssembly Working Group"]
+categories = ["memory-management", "wasm", "development-tools::debugging", "development-tools::profiling"]
+description = "A global allocator for Wasm that traces allocations and deallocations for debugging purposes."
 edition = "2018"
+license = "MIT/Apache-2.0"
+name = "wasm-tracing-allocator"
+readme = "./README.md"
+repository = "https://github.com/rustwasm/wasm-tracing-allocator"
+version = "0.1.0"
 
 [dependencies]
 wasm-bindgen = "0.2.43"
