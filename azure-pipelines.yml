@@ -1,0 +1,17 @@
+pr: ["master"]
+
+jobs:
+  - job: tests
+    displayName: "Tests"
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: ci/install-rust.yml
+        parameters:
+          rust_version: stable
+      - template: ci/install-cargo-readme.yml
+      - bash: |
+          set -ex
+          export RUST_BACKTRACE=1
+          cargo test
+        displayName: "Run `cargo test`"
