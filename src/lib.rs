@@ -1,12 +1,6 @@
 /*!
 
-**A global allocator for Wasm that traces allocations and deallocations for
-debugging purposes.**
-
-[![](https://docs.rs/wasm-tracing-allocator/badge.svg)](https://docs.rs/wasm-tracing-allocator/)
-[![](https://img.shields.io/crates/v/wasm-tracing-allocator.svg)](https://crates.io/crates/wasm-tracing-allocator)
-[![](https://img.shields.io/crates/d/wasm-tracing-allocator.svg)](https://crates.io/crates/wasm-tracing-allocator)
-[![Build Status](https://dev.azure.com/rustwasm/wasm-tracing-allocator/_apis/build/status/rustwasm.wasm-tracing-allocator?branchName=master)](https://dev.azure.com/rustwasm/wasm-tracing-allocator/_build/latest?definitionId=2&branchName=master)
+## About
 
 `wasm-tracing-allocator` enables you to better debug and analyze memory leaks
 and invalid frees in an environment where we don't have access to the
