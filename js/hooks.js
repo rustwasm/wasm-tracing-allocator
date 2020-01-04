@@ -18,7 +18,7 @@
   }
 
   const liveAllocs = new Map();
-  const invalidFrees = new Map();
+  const invalidFrees = [];
 
   function getStack() {
     return Error()
