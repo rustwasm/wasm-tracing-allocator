@@ -63,7 +63,7 @@ Wasm module to import:
 * On the Web, add this script *before* your Wasm module is instantiated:
 
   ```html
-  <script src="https://unpkg.com/wasm-tracing-allocator@0.1.0/js/hooks.js"></script>
+  <script src="https://unpkg.com/wasm-tracing-allocator@0.1.1/js/hooks.js"></script>
   ```
 
 * On Node.js, require the hooks *before* your Wasm module is instantiated:
